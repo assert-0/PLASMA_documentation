@@ -8,16 +8,26 @@
 
 #include <CEGUI/CEGUI.h>
 
+//Calculation data header struct
+struct CalcDataHeader
+{
+    int numFrames;
+    int numParticles;
+    double simulationSpaceScale;
+};
+
+//System handles
+
 extern ObjectHandler *g_obj;
 extern ModelHandler *g_mod;
 extern GUIHandler *g_gui;
-static SimulationEngine g_sim;
+static SimulationRenderer g_sim;
 
-SimulationEngine *getSimulationEngine(){return &g_sim;}
+SimulationRenderer *getSimulationRenderer(){return &g_sim;}
 
-//SimulationEngine methods
+//SimulationRenderer methods
 
-void SimulationEngine::initSimulation()
+void SimulationRenderer::initSimulation()
 {
     g_mod->loadModel("resources/models/sphere.obj", "sphere");
     g_mod->loadModel("resources/models/cage.obj", "cage");
@@ -25,47 +35,54 @@ void SimulationEngine::initSimulation()
     Object *cage = g_obj->getObject(cageID);
     cage->x = 0.0;
     cage->y = 0.0;
-    cage->z = 0.0;
-    cage->scale = 0.1;
-    cage->r = 0.1;
-    cage->g = 0.1;
-    cage->b = 0.1;
+    cage->z = -50.0 * g_cageScale;
+    cage->scale = g_cageScale;
+    cage->r = 0.3;
+    cage->g = 0.3;
+    cage->b = 0.3;
     cage->visible = true;
 }
 
-void SimulationEngine::loadDataFromFile(std::string path)
+void SimulationRenderer::loadDataFromFile(std::string path)
 {
+    CalcDataHeader header;
     std::vector<char> raw;
     int numFrames = 0, numParticles = 0;
 
+    if(!loadFromFileToBuffer(path, raw))
+        return;
+
     dealocateParticleModels();
 
-    loadFromFileToBuffer(path, raw);
-    numFrames = *((int*)&raw.front());
-    numParticles = *((int*)&raw.front() + 1);
+    header = *((CalcDataHeader*)&raw.front());
+
+    numFrames = header.numFrames;
+    numParticles = header.numParticles;
+    simulationSpaceScale = header.simulationSpaceScale;
+
     frames.resize(numFrames);
+
     for(int a = 0; a < numFrames; a++)
     {
         frames[a].resize(numParticles);
         for(int b = 0; b < numParticles; b++)
         {
             frames[a][b] =
-            *((Particle*)&raw[a * numParticles * sizeof(Particle) + b * sizeof(Particle)]);
+            *((Particle*)&raw
+            [
+                a * numParticles * sizeof(Particle) + //Row
+                b * sizeof(Particle) +                //Column
+                sizeof(CalcDataHeader)                //Header offset
+            ]);
         }
-        ZeroMemory(&(frames[a].front()), sizeof(Particle) * frames[a].size());
     }
-    frames[0][0].positionX = 0.5;
-    frames[0][0].positionZ = 10.0;
-    frames[0][1].positionX = -0.5;
-    frames[0][1].positionZ = 10.0;
-    currentPos = 1;
 
     alocateParticleModels();
 
     setSliderPosition(0);
 }
 
-void SimulationEngine::update(double timeElapsed)
+void SimulationRenderer::update(double timeElapsed)
 {
     CEGUI::Window *txt = g_gui->getWindow("txt_timeline");
 
@@ -86,7 +103,7 @@ void SimulationEngine::update(double timeElapsed)
         txt->setText((std::to_string(100 * currentPos / frames.size()) + "%").c_str());
 }
 
-void SimulationEngine::setFrameToPosition(int pos)
+void SimulationRenderer::setFrameToPosition(int pos)
 {
     if(frames.size() <= 0)
         return;
@@ -94,24 +111,29 @@ void SimulationEngine::setFrameToPosition(int pos)
     changeFrame();
 }
 
-void SimulationEngine::changeFrame()
+void SimulationRenderer::changeFrame()
 {
     if(currentPos >= frames.size())
         return;
     std::vector<Object> &vec = *g_obj->getObjects();
-    //printf("%d %d %d %d\n", currentPos, frames.size(), frames[0].size(), vec.size());
     for(int a = 0; a < frames[currentPos].size(); a++)
     {
-        vec[a + 1].x = frames[currentPos - 1][a].positionX < 0 ?
-                       frames[currentPos - 1][a].positionX - 0.1 :
-                       frames[currentPos - 1][a].positionX + 0.1;
-                       /* * g_particleDistance = */
-        vec[a + 1].y = frames[currentPos - 1][a].positionY/* * g_particleDistance*/;
-        vec[a + 1].z = frames[currentPos - 1][a].positionZ/* * g_particleDistance*/;
-        vec[a + 1].scale = /*frames[currentPos][a].radius * */ g_particleScale;
-        frames[currentPos][a].positionX = vec[a + 1].x;
-        frames[currentPos][a].positionY = vec[a + 1].y;
-        frames[currentPos][a].positionZ = vec[a + 1].z;
+        vec[a + 1].x = frames[currentPos][a].positionX;
+        //Conversion to simulation space
+        vec[a + 1].x *= 100 * g_cageScale / simulationSpaceScale;
+        //Offset in simulation space
+        vec[a + 1].x -= 50 * g_cageScale;
+
+        vec[a + 1].y = frames[currentPos][a].positionY;
+        vec[a + 1].y *= 100 * g_cageScale / simulationSpaceScale;
+        vec[a + 1].y -= 50 * g_cageScale;
+
+        vec[a + 1].z = frames[currentPos][a].positionZ;
+        vec[a + 1].z *= 100 * g_cageScale / simulationSpaceScale;
+        vec[a + 1].z -= 50 * g_cageScale;
+
+        vec[a + 1].scale = frames[currentPos][a].radius * g_particleScale;
+
         if(frames[currentPos][a].charge >= 0)
         {
             vec[a + 1].r = 1.0;
@@ -125,36 +147,25 @@ void SimulationEngine::changeFrame()
             vec[a + 1].b = 1.0;
         }
     }
-
-
-    printf("%g %g %g\n", vec[1].x,
-                         vec[1].y,
-                         vec[1].z);
-
-    /*
-    printf("%g %g %g\n", frames[currentPos][0].positionX,
-                         frames[currentPos][0].positionY,
-                         frames[currentPos][0].positionZ);
-    */
 }
 
-void SimulationEngine::setSliderPosition(int pos)
+void SimulationRenderer::setSliderPosition(int pos)
 {
     CEGUI::Slider *sli = static_cast<CEGUI::Slider*>(g_gui->getWindow("sli_timeline"));
     sli->setCurrentValue((float)pos);
 }
 
-void SimulationEngine::alocateParticleModels()
+void SimulationRenderer::alocateParticleModels()
 {
     particleModelIDs.resize(frames[0].size());
-    for(int a = 0; a < frames[a].size(); a++)
+    for(int a = 0; a < frames[0].size(); a++)
     {
         particleModelIDs[a] = g_obj->createObject("sphere");
         g_obj->getObject(particleModelIDs[a])->visible = true;
     }
 }
 
-void SimulationEngine::dealocateParticleModels()
+void SimulationRenderer::dealocateParticleModels()
 {
     for(int a = 0; a < particleModelIDs.size(); a++)
         g_obj->destroyObject(particleModelIDs[a]);

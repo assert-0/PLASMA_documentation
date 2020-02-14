@@ -12,7 +12,7 @@
 extern Runtime *g_sys;
 extern GUIHandler *g_gui;
 extern Renderer *g_ren;
-extern SimulationEngine *g_sim;
+extern SimulationRenderer *g_simRen;
 
 enum EVENTS
 {
@@ -60,18 +60,18 @@ void mainGUICallback(const CEGUI::EventArgs &args, int type)
             {
                 std::vector<std::string> vec;
                 getFileFromExplorer(vec);
-                g_sim->loadDataFromFile(vec[0]);
+                g_simRen->loadDataFromFile(vec[0]);
             }
             else if(name == "but_begin")
             {
-                if(g_sim->isStarted())
+                if(g_simRen->isStarted())
                 {
-                    g_sim->stop();
+                    g_simRen->stop();
                     wnd->setText("BEGIN SIMULATION");
                 }
                 else
                 {
-                    g_sim->start();
+                    g_simRen->start();
                     wnd->setText("STOP SIMULATION");
                 }
             }
@@ -110,8 +110,8 @@ void mainGUICallback(const CEGUI::EventArgs &args, int type)
             }
             else if(name == "sli_timeline")
             {
-                if(!g_sim->isStarted())
-                    g_sim->setFrameToPosition(int(pos));
+                if(!g_simRen->isStarted())
+                    g_simRen->setFrameToPosition(int(pos));
             }
 
             break;

@@ -6,20 +6,18 @@
 #include <direct.h>
 
 //Loads a file and saves it to the byte vector.
-void loadFromFileToBuffer(std::string path, std::vector<char> &data)
+bool loadFromFileToBuffer(std::string path, std::vector<char> &data)
 {
     int filesize = 0;
     std::ifstream str(path, std::ios::binary);
     if(!str.is_open())
-    {
-        printf("Couldn't load %s!\n", path.c_str());
-        return;
-    }
+        return false;
     str.seekg(0, std::ios::end);
     filesize = str.tellg();
     data.resize(filesize);
     str.seekg(0, std::ios::beg);
     str.read(&data.front(), filesize);
+    return true;
 }
 
 //Writes the contents of the byte vector to a file.
@@ -27,10 +25,7 @@ void dumpToFileFromBuffer(std::string path, const std::vector<char> &data)
 {
     std::ofstream str(path, std::ios::binary);
     if(!str.is_open())
-    {
-        printf("Couldn't write %s!\n", path.c_str());
         return;
-    }
     str.write((const char*)&data.front(), data.size());
 }
 
@@ -42,6 +37,8 @@ void getFileFromExplorer(std::vector<std::string> &results)
     std::string res = "", tmp = "", dir = "";
     res.resize(4096);
     dir.resize(4096);
+
+    res[0] = '\0';
 
     GetCurrentDirectory(4096, (char*)&dir[0]);
 
@@ -55,7 +52,13 @@ void getFileFromExplorer(std::vector<std::string> &results)
     ofn.Flags = OFN_EXPLORER;
 
     if(!GetOpenFileName(&ofn))
+    {
+        results.resize(1);
+        results[0] += '\0';
         return;
+    }
+
+    results.resize(0);
 
     for(int a = 0; a < 4096 - 1; a++){
         if(res[a] == 0 && res[a + 1] == 0)

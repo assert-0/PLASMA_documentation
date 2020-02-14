@@ -1,0 +1,9 @@
+Particle ammount = 2000
+Space scale = 1.0e-7
+Initial temperature = 500
+Time increment = 2.0e-14
+Number of frames = 1200
+Particle charge = 1
+Particle mass = 1.007825
+Magnetic field = 0
+Electric field = 0

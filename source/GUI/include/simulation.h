@@ -26,7 +26,7 @@ struct Particle
     float magneticMomentX, magneticMomentY, magneticMomentZ;
 };
 
-class SimulationEngine
+class SimulationRenderer
 {
 public:
     void initSimulation();
@@ -53,10 +53,13 @@ private:
     void dealocateParticleModels();
 
     std::vector< std::vector<Particle> > frames;
+    double simulationSpaceScale;
+
     std::vector<int> particleModelIDs;
+
     int cageID;
     int currentPos;
     bool started;
 };
 
-SimulationEngine *getSimulationEngine();
+SimulationRenderer *getSimulationRenderer();

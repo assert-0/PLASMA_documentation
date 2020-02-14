@@ -1,0 +1,72 @@
+# depslib dependency file v1.0
+1581643746 source:c:\c++\official\plasma\simulation\engine\src\main.cxx
+	<PLASMA_simulation.h>
+	<constants.h>
+	<data_extraction.h>
+	<fstream>
+
+1581619615 c:\c++\official\plasma\simulation\engine\include\particle.h
+	<cmath>
+	<windows.h>
+	<constants.h>
+
+1581619615 c:\c++\official\plasma\simulation\engine\include\coil.h
+
+1581450232 c:\c++\official\plasma\simulation\engine\include\reset.h
+
+1581524428 c:\c++\official\plasma\simulation\engine\include\init.h
+
+1581450232 c:\c++\official\plasma\simulation\engine\include\collision.h
+
+1581619615 c:\c++\official\plasma\simulation\engine\include\data_extraction.h
+
+1581450232 c:\c++\official\plasma\simulation\engine\include\simulation_functions.h
+
+1581619616 source:c:\c++\official\plasma\simulation\engine\src\coil.cxx
+	<coil.h>
+	<functional>
+	<cmath>
+	<windows.h>
+	<ctpl.h>
+	<constants.h>
+
+1581619616 source:c:\c++\official\plasma\simulation\engine\src\reset.cxx
+	<engine.h>
+
+1581643746 c:\c++\official\plasma\simulation\engine\include\engine.h
+	<vector>
+	<coil.h>
+	<particle.h>
+	<constants.h>
+
+1581619615 c:\c++\official\plasma\simulation\engine\include\constants.h
+
+1581619616 source:c:\c++\official\plasma\simulation\engine\src\collision.cxx
+	<engine.h>
+
+1581643990 source:c:\c++\official\plasma\simulation\engine\src\engine.cxx
+	<engine.h>
+	<cstdio>
+
+1581619616 source:c:\c++\official\plasma\simulation\engine\src\init.cxx
+	<engine.h>
+	<random>
+
+1581619616 source:c:\c++\official\plasma\simulation\engine\src\simulation_functions.cxx
+	<engine.h>
+	<cstdio>
+
+1581619615 c:\c++\official\plasma\simulation\engine\include\plasma_simulation.h
+	<coil.h>
+	<particle.h>
+	<engine.h>
+
+1581619616 source:c:\c++\official\plasma\simulation\engine\src\data_extraction.cxx
+	<data_extraction.h>
+	<functional>
+	<algorithm>
+	<vector>
+	<set>
+	<cstdio>
+	<particle.h>
+

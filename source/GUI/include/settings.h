@@ -6,35 +6,51 @@
 
 //Constants
 
-const double PI = 3.14159265358979323846264338;
-const double PI2 = PI * 2.0;
+extern double PI;
+extern double PI2;
 
 //Base FOV
-const float g_baseFOV = rad(45.0);
+extern float g_baseFOV;
 //The modifier is multiplied by the slider offset
 //to control the range of values the slider can achieve.
-const float g_FOVModifier = 1.0;
+extern float g_FOVModifier;
 
 //Base mouse horizontal and vertical speeds along with
 //their modifiers
 
-const double g_baseMouseSpeedH = 0.000025;
-const double g_baseMouseSpeedV = 0.000025;
-const double g_mouseSpeedHModifier = 5.0;
-const double g_mouseSpeedVModifier = 5.0;
+extern double g_baseMouseSpeedH;
+extern double g_baseMouseSpeedV;
+extern double g_mouseSpeedHModifier;
+extern double g_mouseSpeedVModifier;
 
 //Base keyboard movement speed and its modifier
 
-const double g_baseKeyboardSpeed = 10.0;
-const double g_keyboardSpeedModifier = 2.0;
+extern double g_baseKeyboardSpeed;
+extern double g_keyboardSpeedModifier;
 
 //Also known as Z-far. This value controls the distance
 //at which objects will no longer render.
-const float g_maxRenderDistance = 10000000.0;
+extern float g_maxRenderDistance;
 
-//Distance multiplier between real particles and particle models.
-//(distance scale)
-const double g_particleDistance = 1000000.0;
 //Radius multiplier between real particles and particle models.
 //(radius/size scale)
-const double g_particleScale = 0.5;
+extern double g_particleScale;
+
+//Miscellaneous settings
+
+//Screen resolution
+extern int g_resolutionW, g_resolutionH;
+
+//Camera position and rotation
+
+extern int g_cameraPosX, g_cameraPosY, g_cameraPosZ;
+extern double g_cameraAngleV, g_cameraAngleH;
+
+//Background color
+extern float g_backgroundR, g_backgroundG, g_backgroundB;
+
+//GUI transparency
+extern float g_guiAlpha;
+
+//Cage model scale
+extern float g_cageScale;

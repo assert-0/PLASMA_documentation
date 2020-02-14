@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="PLASMA_simulation" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_gcc_64-bit_compiler" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/PLASMA_simulation" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_64-bit_compiler" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/PLASMA_simulation" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_64-bit_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-O3" />
+			<Add option="-Wall" />
+			<Add option="-std=c++17" />
+			<Add option="-fexceptions" />
+			<Add directory="include" />
+		</Compiler>
+		<Linker>
+			<Add option="-static-libstdc++ -static-libgcc -static -lpthread" />
+		</Linker>
+		<Unit filename="include/PLASMA_simulation.h" />
+		<Unit filename="include/coil.h" />
+		<Unit filename="include/constants.h" />
+		<Unit filename="include/data_extraction.h" />
+		<Unit filename="include/engine.h" />
+		<Unit filename="include/particle.h" />
+		<Unit filename="src/coil.cxx" />
+		<Unit filename="src/collision.cxx" />
+		<Unit filename="src/data_extraction.cxx" />
+		<Unit filename="src/engine.cxx" />
+		<Unit filename="src/init.cxx" />
+		<Unit filename="src/main.cxx" />
+		<Unit filename="src/reset.cxx" />
+		<Unit filename="src/simulation_functions.cxx" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

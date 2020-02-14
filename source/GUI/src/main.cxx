@@ -14,7 +14,7 @@ ModelHandler *g_mod;
 EventHandler *g_eve;
 Renderer *g_ren;
 GUIHandler *g_gui;
-SimulationEngine *g_sim;
+SimulationRenderer *g_simRen;
 
 void test()
 {
@@ -35,7 +35,7 @@ void getHandles()
     g_eve = getEventHandler();
     g_ren = getRenderer();
     g_gui = getGUIHandler();
-    g_sim = getSimulationEngine();
+    g_simRen = getSimulationRenderer();
 }
 
 void initGui()
@@ -80,8 +80,15 @@ void initGui()
         }
     };
 
+    auto setAlpha =
+    [&g_guiAlpha](CEGUI::Window *in)
+    {
+        in->setAlpha(g_guiAlpha);
+    };
+
     g_gui->initCEGUI();
     g_gui->executeForEachWindow(setCallbacks);
+    g_gui->executeForEachWindow(setAlpha);
 
     g_gui->getWindow("root")->subscribeEvent
     (
@@ -93,29 +100,43 @@ void initGui()
 void update(double timeElapsed)
 {
     g_gui->update(timeElapsed);
-    g_sim->update(timeElapsed);
+    g_simRen->update(timeElapsed);
 }
 
 int main()
 {
     getHandles();
 
-    g_sys->createWindow("PLASMA", 1280, 720);
+    g_sys->createWindow("PLASMA", g_resolutionW, g_resolutionH);
 
     initGui();
 
+    g_ren->setMaxrenderDistance(g_maxRenderDistance);
+    g_ren->setCameraPosition
+    (
+        g_cameraPosX,
+        g_cameraPosY,
+        g_cameraPosZ
+    );
+    g_ren->setCameraAngles
+    (
+        g_cameraAngleV,
+        g_cameraAngleH
+    );
+
+    g_sys->setBackgroundColor
+    (
+        g_backgroundR,
+        g_backgroundG,
+        g_backgroundB
+    );
     g_sys->setMouseSpeedHorizontal(g_baseMouseSpeedH);
     g_sys->setMouseSpeedVertical(g_baseMouseSpeedV);
     g_sys->setKeyboardSpeed(g_baseKeyboardSpeed);
-
-    g_ren->setMaxrenderDistance(g_maxRenderDistance);
-    g_ren->setCameraPosition(-10, -100, -800);
-
     g_sys->setUpdateCallback(update);
-
     g_sys->toggleVsync(true);
 
-    g_sim->initSimulation();
+    g_simRen->initSimulation();
 
     g_sys->run();
 }

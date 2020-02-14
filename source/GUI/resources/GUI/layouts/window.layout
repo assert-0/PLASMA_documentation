@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="root" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="GWEN/Button" name="but_settings" >
+            <Property name="Area" value="{{0,0},{0,0},{0.15,0},{0.05,0}}" />
+            <Property name="Font" value="Jura-13" />
+            <Property name="Text" value="SETTINGS" />
+            <Property name="VerticalAlignment" value="Bottom" />
+        </Window>
+        <Window type="GWEN/FrameWindow" name="fra_settings" >
+            <Property name="Area" value="{{0,1},{0,-1},{0.35,1},{0.35,-1}}" />
+            <Property name="Text" value="SETTINGS" />
+            <Property name="Visible" value="false" />
+            <Property name="VerticalAlignment" value="Centre" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="AutoRenderingSurface" value="true" />
+            <AutoWindow namePath="__auto_titlebar__" >
+                <Property name="NonClient" value="true" />
+                <Property name="AlwaysOnTop" value="false" />
+            </AutoWindow>
+            <AutoWindow namePath="__auto_closebutton__" >
+                <Property name="NonClient" value="true" />
+                <Property name="AlwaysOnTop" value="true" />
+            </AutoWindow>
+            <Window type="WindowsLook/StaticText" name="txt_mouse_h" >
+                <Property name="Area" value="{{0,0},{0,0},{0.25,0},{0.25,0}}" />
+                <Property name="Font" value="Jura-10" />
+                <Property name="Text" value="Mouse horizontal sensitivity" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="WordWrapCentreAligned" />
+                <Property name="HorzScrollPageSize" value="158.8" />
+                <Property name="VertScrollPageSize" value="78.8" />
+                <Property name="HorizontalAlignment" value="Right" />
+                <Property name="HorzScrollDocumentSize" value="99" />
+                <Property name="VertScrollDocumentSize" value="61.582" />
+            </Window>
+            <Window type="WindowsLook/StaticText" name="txt_mouse_v" >
+                <Property name="Area" value="{{0,0},{0.25,0},{0.25,0},{0.5,0}}" />
+                <Property name="Font" value="Jura-10" />
+                <Property name="Text" value="Mouse vertical sensitivity" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="WordWrapCentreAligned" />
+                <Property name="HorzScrollPageSize" value="158.8" />
+                <Property name="VertScrollPageSize" value="78.8" />
+                <Property name="HorizontalAlignment" value="Right" />
+                <Property name="HorzScrollDocumentSize" value="139" />
+                <Property name="VertScrollDocumentSize" value="41.0547" />
+            </Window>
+            <Window type="WindowsLook/StaticText" name="txt_speed" >
+                <Property name="Area" value="{{0,0},{0.5,0},{0.25,0},{0.75,0}}" />
+                <Property name="Font" value="Jura-10" />
+                <Property name="Text" value="Movement speed" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="WordWrapCentreAligned" />
+                <Property name="HorzScrollPageSize" value="158.8" />
+                <Property name="VertScrollPageSize" value="78.8" />
+                <Property name="HorizontalAlignment" value="Right" />
+                <Property name="HorzScrollDocumentSize" value="97" />
+                <Property name="VertScrollDocumentSize" value="41.0547" />
+            </Window>
+            <Window type="WindowsLook/StaticText" name="txt_fov" >
+                <Property name="Area" value="{{0,0},{0.75,0},{0.25,0},{1,0}}" />
+                <Property name="Font" value="Jura-10" />
+                <Property name="Text" value="FOV" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="WordWrapCentreAligned" />
+                <Property name="HorzScrollPageSize" value="158.8" />
+                <Property name="VertScrollPageSize" value="78.8" />
+                <Property name="HorizontalAlignment" value="Right" />
+                <Property name="HorzScrollDocumentSize" value="36" />
+                <Property name="VertScrollDocumentSize" value="20.5273" />
+            </Window>
+            <Window type="WindowsLook/StaticText" name="txt_mouse_h_slider" >
+                <Property name="Area" value="{{0,0},{0,0},{0.75,0},{0.25,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzScrollPageSize" value="490.8" />
+                <Property name="VertScrollPageSize" value="78.8" />
+                <Window type="WindowsLook/Slider" name="sli_mouse_h" >
+                    <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+                    <Property name="CurrentValue" value="0.5" />
+                    <Property name="VerticalSlider" value="false" />
+                </Window>
+            </Window>
+            <Window type="WindowsLook/StaticText" name="txt_mouse_v_slider" >
+                <Property name="Area" value="{{0,0},{0.25,0},{0.75,0},{0.5,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzScrollPageSize" value="490.8" />
+                <Property name="VertScrollPageSize" value="78.8" />
+                <Window type="WindowsLook/Slider" name="sli_mouse_v" >
+                    <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+                    <Property name="CurrentValue" value="0.5" />
+                    <Property name="VerticalSlider" value="false" />
+                </Window>
+            </Window>
+            <Window type="WindowsLook/StaticText" name="txt_speed_slider" >
+                <Property name="Area" value="{{0,0},{0.5,0},{0.75,0},{0.75,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzScrollPageSize" value="490.8" />
+                <Property name="VertScrollPageSize" value="78.8" />
+                <Window type="WindowsLook/Slider" name="sli_speed" >
+                    <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+                    <Property name="CurrentValue" value="0.5" />
+                    <Property name="VerticalSlider" value="false" />
+                </Window>
+            </Window>
+            <Window type="WindowsLook/StaticText" name="txt_fov_slider" >
+                <Property name="Area" value="{{0,0},{0.75,0},{0.75,0},{1,0}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzScrollPageSize" value="490.8" />
+                <Property name="VertScrollPageSize" value="78.8" />
+                <Window type="WindowsLook/Slider" name="sli_fov" >
+                    <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+                    <Property name="CurrentValue" value="0.5" />
+                    <Property name="VerticalSlider" value="false" />
+                </Window>
+            </Window>
+        </Window>
+        <Window type="TaharezLook/Button" name="but_begin" >
+            <Property name="Area" value="{{0,0},{0,0},{0.2,0},{0.05,0}}" />
+            <Property name="Font" value="Jura-13" />
+            <Property name="Text" value="BEGIN SIMULATION" />
+            <Property name="HorizontalAlignment" value="Right" />
+        </Window>
+        <Window type="TaharezLook/Button" name="but_import" >
+            <Property name="Area" value="{{0,0},{0,0},{0.1,0},{0.05,0}}" />
+            <Property name="Font" value="Jura-13" />
+            <Property name="Text" value="IMPORT" />
+            <Property name="TooltipText" value="Import a precalculated simulation" />
+        </Window>
+        <Window type="TaharezLook/Button" name="but_calculate" >
+            <Property name="Area" value="{{0.1,-2},{0,0},{0.2,-2},{0.05,0}}" />
+            <Property name="Font" value="Jura-13" />
+            <Property name="Text" value="CALCULATE" />
+        </Window>
+        <Window type="WindowsLook/StaticText" name="txt_timeline" >
+            <Property name="Area" value="{{0,0},{-0.05,0},{0.1,0},{0,0}}" />
+            <Property name="Font" value="Jura-18" />
+            <Property name="Text" value="0%" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="VerticalAlignment" value="Bottom" />
+            <Property name="HorzScrollPageSize" value="184.8" />
+            <Property name="VertScrollPageSize" value="46.8" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="HorzScrollDocumentSize" value="42" />
+            <Property name="VertScrollDocumentSize" value="36.9492" />
+        </Window>
+        <Window type="WindowsLook/StaticText" name="txt_logo" >
+            <Property name="Area" value="{{0,0},{0,0},{0.15,0},{0.05,0}}" />
+            <Property name="Font" value="Jura-18" />
+            <Property name="Text" value="PLASMA" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="TextColours" value="tl:FF0000FF tr:FF000000 bl:FF000000 br:FF000000" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="VerticalAlignment" value="Bottom" />
+            <Property name="HorzScrollPageSize" value="280.8" />
+            <Property name="VertScrollPageSize" value="46.8" />
+            <Property name="HorizontalAlignment" value="Right" />
+            <Property name="HorzScrollDocumentSize" value="131" />
+            <Property name="VertScrollDocumentSize" value="36.9492" />
+        </Window>
+        <Window type="TaharezLook/ProgressBar" name="pro_calculate" >
+            <Property name="Area" value="{{0,0},{0,0},{0.6,0},{0.05,0}}" />
+            <Property name="StepSize" value="0.01" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="WindowsLook/StaticText" name="txt_timeline_slider" >
+            <Property name="Area" value="{{0,0},{0,0},{0.7,0},{0.05,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="VerticalAlignment" value="Bottom" />
+            <Property name="HorzScrollPageSize" value="1336.8" />
+            <Property name="VertScrollPageSize" value="46.8" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="AutoRenderingSurface" value="true" />
+            <Window type="WindowsLook/Slider" name="sli_timeline" >
+                <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+                <Property name="MaximumValue" value="100" />
+                <Property name="ClickStepSize" value="1" />
+                <Property name="VerticalSlider" value="false" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

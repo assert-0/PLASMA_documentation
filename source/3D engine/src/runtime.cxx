@@ -206,23 +206,23 @@ static void moveCamera
             break;
         case MOVE_LEFT:
             forward *= 0.0;
-            right *= 1.0;
+            right *= 0.25;
             up *= 0.0;
             break;
         case MOVE_RIGHT:
             forward *= 0.0;
-            right *= -1.0;
+            right *= -0.25;
             up *= 0.0;
             break;
         case MOVE_UP:
             forward *= 0.0;
             right *= 0.0;
-            up *= 1.0;
+            up *= 0.25;
             break;
         case MOVE_DOWN:
             forward *= 0.0;
             right *= 0.0;
-            up *= -1.0;
+            up *= -0.25;
             break;
     }
 
