@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="PLASMA" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_gcc_64-bit_compiler" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/PLASMA" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_64-bit_compiler" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/PLASMA" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_64-bit_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="include" />
+		</Compiler>
+		<Linker>
+			<Add library="3D_engine" />
+			<Add library="glfw3dll" />
+			<Add library="glew32" />
+			<Add library="opengl32" />
+			<Add library="assimp.dll" />
+			<Add library="CEGUIBase-0.dll" />
+			<Add library="CEGUICommonDialogs-0.dll" />
+			<Add library="CEGUICoreWindowRendererSet.dll" />
+			<Add library="CEGUIExpatParser.dll" />
+			<Add library="CEGUIOpenGLRenderer-0.dll" />
+			<Add library="CEGUISILLYImageCodec.dll" />
+			<Add library="Comdlg32" />
+			<Add directory="lib" />
+		</Linker>
+		<Unit filename="include/gui_handler.h" />
+		<Unit filename="include/main_gui_callback.h" />
+		<Unit filename="include/settings.h" />
+		<Unit filename="include/simulation.h" />
+		<Unit filename="include/tools.h" />
+		<Unit filename="src/gui_handler.cxx" />
+		<Unit filename="src/main.cxx" />
+		<Unit filename="src/main_gui_callback.cxx" />
+		<Unit filename="src/settings.cxx" />
+		<Unit filename="src/simulation.cxx" />
+		<Unit filename="src/tools.cxx" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

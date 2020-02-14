@@ -1,0 +1,163 @@
+# depslib dependency file v1.0
+1569355859 source:c:\c++\games\3d\main.cxx
+	<cstdio>
+	"runtime.h"
+
+1569355049 source:c:\c++\games\3d\src\window_handler.cxx
+	"window_handler.h"
+	<windows.h>
+
+1569354044 c:\c++\games\3d\include\window_handler.h
+	<windows.h>
+
+1580850250 c:\c++\games\3d\include\runtime.h
+	<windows.h>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1580852431 source:c:\c++\games\3d\src\runtime.cxx
+	"runtime.h"
+	"event.h"
+	"renderer.h"
+	"debug_flags.h"
+	"test_OpenGL_main.h"
+	"test_engine.h"
+	<cstdio>
+	<thread>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<GLFW/glfw3native.h>
+	<glm/glm.hpp>
+	<windows.h>
+
+1580850382 source:c:\c++\games\3d\src\main.cxx
+	<cstdio>
+	"runtime.h"
+	"object.h"
+	"test_engine.h"
+	"debug_flags.h"
+
+1580850280 c:\c++\games\3d\include\event.h
+	"runtime.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1581011806 source:c:\c++\games\3d\src\event.cxx
+	"event.h"
+	"runtime.h"
+	"test_OpenGL_event.h"
+	"debug_flags.h"
+	<cstdio>
+	<GLFW/glfw3.h>
+
+1579282602 source:c:\c++\games\3d\test\test_main.cxx
+	"test_main.h"
+	"runtime.h"
+	"test_event.h"
+	<cstdio>
+	<cmath>
+	<sstream>
+	<string>
+	<fstream>
+	<cassert>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1579282602 c:\c++\games\3d\test\test_main.h
+
+1576931769 c:\c++\games\3d\test\test_event.h
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1579282602 source:c:\c++\games\3d\test\test_event.cxx
+	"test_event.h"
+	"test_main.h"
+	"runtime.h"
+	<cstdio>
+
+1577967597 source:c:\c++\games\3d\src\object_handler.cxx
+
+1580850470 source:c:\c++\games\3d\src\object.cxx
+	"object.h"
+	<algorithm>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1580850043 c:\c++\games\3d\include\object.h
+	<vector>
+	<map>
+	<string>
+	<windows.h>
+	<GL/glew.h>
+
+1580845157 c:\c++\games\3d\include\debug_flags.h
+
+1580850653 source:c:\c++\games\3d\src\renderer.cxx
+	"renderer.h"
+	"runtime.h"
+	"object.h"
+	<vector>
+	<sstream>
+	<string>
+	<fstream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	<glm/gtc/matrix_transform.hpp>
+
+1580850280 c:\c++\games\3d\include\renderer.h
+	"object.h"
+	"runtime.h"
+
+1580846055 source:c:\c++\games\3d\test\test_opengl_event.cxx
+	"test_OpenGL_event.h"
+	"test_OpenGL_main.h"
+	"runtime.h"
+	<cstdio>
+
+1579284838 c:\c++\games\3d\test\test_opengl_event.h
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1579284838 c:\c++\games\3d\test\test_opengl_main.h
+
+1580846055 source:c:\c++\games\3d\test\test_opengl_main.cxx
+	"test_OpenGL_main.h"
+	"test_OpenGL_event.h"
+	"runtime.h"
+	<cstdio>
+	<cmath>
+	<sstream>
+	<string>
+	<fstream>
+	<cassert>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<glm/glm.hpp>
+	<glm/gtx/transform.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1579286228 c:\c++\games\3d\test\test_engine.h
+
+1580849642 source:c:\c++\games\3d\test\test_engine.cxx
+	"test_engine.h"
+	"runtime.h"
+	"renderer.h"
+	"event.h"
+	"object.h"
+	<vector>
+	<glm/glm.hpp>
+
+1580849392 c:\c++\games\3d\test\debug_flags.h
+

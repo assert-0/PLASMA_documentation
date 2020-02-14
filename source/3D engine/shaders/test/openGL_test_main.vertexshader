@@ -1,0 +1,17 @@
+#version 330 core
+
+layout(location = 0) in vec3 vertexPos;
+layout(location = 1) in vec3 inputColor;
+
+// Values that stay constant for the whole mesh.
+uniform mat4 MVP;
+
+// Passing color to fragment shader.
+out vec3 shapeColor;
+
+void main()
+{
+	// Output position of the vertex, in clip space : MVP * position
+	gl_Position =  MVP * vec4(vertexPos, 1);
+	shapeColor = inputColor;
+}

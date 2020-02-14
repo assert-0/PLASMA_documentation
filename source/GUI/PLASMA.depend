@@ -1,0 +1,90 @@
+# depslib dependency file v1.0
+1581065934 source:c:\c++\official\plasma\gui\plasma\src\main.cxx
+	"gui_handler.h"
+	"simulation.h"
+	"main_gui_callback.h"
+	"settings.h"
+	"tools.h"
+	<3D_engine/3D_engine.h>
+	<string>
+
+1580845991 c:\c++\official\plasma\gui\plasma\include\3d_engine\3d_engine.h
+	"3D_engine/event.h"
+	"3D_engine/object.h"
+	"3D_engine/renderer.h"
+	"3D_engine/runtime.h"
+
+1580674052 c:\c++\official\plasma\gui\plasma\include\3d_engine\event.h
+	"runtime.h"
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1580677592 c:\c++\official\plasma\gui\plasma\include\3d_engine\runtime.h
+	<windows.h>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+
+1579905774 c:\c++\official\plasma\gui\plasma\include\3d_engine\object.h
+	<vector>
+	<map>
+	<string>
+	<windows.h>
+	<GL/glew.h>
+
+1580588558 c:\c++\official\plasma\gui\plasma\include\3d_engine\renderer.h
+	"object.h"
+	"runtime.h"
+
+1581065934 source:c:\c++\official\plasma\gui\plasma\src\gui_handler.cxx
+	"gui_handler.h"
+	<3D_engine/3D_engine.h>
+
+1581065933 c:\c++\official\plasma\gui\plasma\include\gui_handler.h
+	<string>
+	<functional>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<CEGUI/CEGUI.h>
+	<CEGUI/RendererModules/OpenGL/GL3Renderer.h>
+
+1581087995 source:c:\c++\official\plasma\gui\plasma\src\simulation.cxx
+	"simulation.h"
+	"gui_handler.h"
+	"tools.h"
+	"settings.h"
+	<3D_engine/3D_engine.h>
+	<CEGUI/CEGUI.h>
+
+1581065933 c:\c++\official\plasma\gui\plasma\include\simulation.h
+	<vector>
+	<string>
+
+1581085550 source:c:\c++\official\plasma\gui\plasma\src\main_gui_callback.cxx
+	"main_gui_callback.h"
+	"gui_handler.h"
+	"settings.h"
+	"tools.h"
+	"simulation.h"
+	<3D_engine/3D_engine.h>
+	<string>
+
+1581065933 c:\c++\official\plasma\gui\plasma\include\main_gui_callback.h
+	<CEGUI/CEGUI.h>
+
+1581065934 source:c:\c++\official\plasma\gui\plasma\src\settings.cxx
+	"settings.h"
+
+1581087398 c:\c++\official\plasma\gui\plasma\include\settings.h
+	<cmath>
+
+1581065934 source:c:\c++\official\plasma\gui\plasma\src\tools.cxx
+	"tools.h"
+	<fstream>
+	<cstdio>
+	<windows.h>
+	<direct.h>
+
+1581065933 c:\c++\official\plasma\gui\plasma\include\tools.h
+	<string>
+	<vector>
+

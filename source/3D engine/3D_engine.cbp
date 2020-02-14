@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="3D engine" />
+		<Option pch_mode="2" />
+		<Option compiler="gnu_gcc_64-bit_compiler" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/3D_engine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_64-bit_compiler" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/3D_engine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gnu_gcc_64-bit_compiler" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="Library">
+				<Option output="bin/Library/lib3D_engine.a" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="" />
+				<Option object_output="obj/Library" />
+				<Option type="2" />
+				<Option compiler="gnu_gcc_64-bit_compiler" />
+				<Option createDefFile="1" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-O3" />
+			<Add option="-Wall" />
+			<Add directory="include" />
+			<Add directory="test" />
+		</Compiler>
+		<Linker>
+			<Add library="glfw3dll" />
+			<Add library="glew32" />
+			<Add library="opengl32" />
+			<Add library="assimp.dll" />
+		</Linker>
+		<Unit filename="include/3D_engine.h" />
+		<Unit filename="include/event.h" />
+		<Unit filename="include/object.h" />
+		<Unit filename="include/renderer.h" />
+		<Unit filename="include/runtime.h" />
+		<Unit filename="shaders/main.fragmentshader" />
+		<Unit filename="shaders/main.vertexshader" />
+		<Unit filename="shaders/test/basic.fragmentshader" />
+		<Unit filename="shaders/test/basic.vertexshader" />
+		<Unit filename="shaders/test/openGL_test_main.fragmentshader" />
+		<Unit filename="shaders/test/openGL_test_main.vertexshader" />
+		<Unit filename="shaders/test/red.fragmentshader" />
+		<Unit filename="shaders/test/red.vertexshader" />
+		<Unit filename="src/event.cxx" />
+		<Unit filename="src/main.cxx" />
+		<Unit filename="src/object.cxx" />
+		<Unit filename="src/renderer.cxx" />
+		<Unit filename="src/runtime.cxx" />
+		<Unit filename="test/debug_flags.h" />
+		<Unit filename="test/test_OpenGL_event.cxx" />
+		<Unit filename="test/test_OpenGL_event.h" />
+		<Unit filename="test/test_OpenGL_main.cxx" />
+		<Unit filename="test/test_OpenGL_main.h" />
+		<Unit filename="test/test_engine.cxx" />
+		<Unit filename="test/test_engine.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,13 @@
+#version 330 core
+
+//Get the vertex position from the input stream.
+layout(location = 0) in vec3 vertexPos;
+
+//Projection matrix constant
+uniform mat4 MVP;
+
+void main()
+{
+    //Calculate the vertex position and output it to the pipeline.
+    gl_Position =  MVP * vec4(vertexPos, 1);
+}
